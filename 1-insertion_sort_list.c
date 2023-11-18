@@ -20,14 +20,15 @@ void insertion_sort_list(listint_t **list)
 			if (temp->next != NULL)
 				temp->next->prev = temp->prev;
 			temp->prev->next = temp->next;
-			temp->next = temp->prev;
+			if (temp->prev != NULL)
+				temp->next = temp->prev;
 			temp->prev = temp->prev->prev;
 
 			if (temp->prev == NULL)
 				*list = temp;
 			else
 				temp->prev->next = temp;
-			
+
 			if (temp->next)
 				temp->next->prev = temp;
 			print_list(*list);
