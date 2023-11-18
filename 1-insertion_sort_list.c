@@ -20,8 +20,7 @@ void insertion_sort_list(listint_t **list)
 			if (temp->next != NULL)
 				temp->next->prev = temp->prev;
 			temp->prev->next = temp->next;
-			if (temp->prev != NULL)
-				temp->next = temp->prev;
+			temp->next = temp->prev;
 			temp->prev = temp->prev->prev;
 
 			if (temp->prev == NULL)
@@ -29,8 +28,7 @@ void insertion_sort_list(listint_t **list)
 			else
 				temp->prev->next = temp;
 
-			if (temp->next)
-				temp->next->prev = temp;
+			temp->next->prev = temp;
 			print_list(*list);
 		}
 		current = current->next;
