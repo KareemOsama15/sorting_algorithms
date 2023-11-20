@@ -27,5 +27,7 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void quickSort_recursion(int *array, int low, int high, int len);
+int quickSort_partition(int *array, int low, int high, int len);
 
 #endif
