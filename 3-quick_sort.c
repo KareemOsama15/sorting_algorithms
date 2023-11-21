@@ -6,7 +6,6 @@
  * @array: the array that contain numbers
  * @low: low index in array
  * @high: high index in array
- * @len: size of array
  * Return: no return
  */
 int quickSort_partition(int *array, int low, int high)
