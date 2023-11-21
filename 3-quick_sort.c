@@ -6,9 +6,10 @@
  * @array: the array that contain numbers
  * @low: low index in array
  * @high: high index in array
+ * @len: size of array
  * Return: no return
  */
-int quickSort_partition(int *array, int low, int high)
+int quickSort_partition(int *array, int low, int high, int len)
 {
 	int pivot_value = array[high];
 	int i = low, j, temp;
@@ -17,15 +18,23 @@ int quickSort_partition(int *array, int low, int high)
 	{
 		if (array[j] <= pivot_value)
 		{
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
+			if (i != j)
+			{
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+				print_array(array, len);
+			}
 			i++;
 		}
 	}
-	temp = array[high];
-	array[high] = array[i];
-	array[i] = temp;
+	if (i != high)
+	{
+		temp = array[high];
+		array[high] = array[i];
+		array[i] = temp;
+		print_array(array, len);
+	}
 
 	return (i);
 }
@@ -44,8 +53,7 @@ void quickSort_recursion(int *array, int low, int high, int len)
 
 	if (low < high)
 	{
-		pivot_pos = quickSort_partition(array, low, high);
-		print_array(array, len);
+		pivot_pos = quickSort_partition(array, low, high, len);
 		quickSort_recursion(array, low, pivot_pos - 1, len);
 		quickSort_recursion(array, pivot_pos + 1, high, len);
 	}
