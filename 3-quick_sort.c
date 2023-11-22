@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
  * quickSort_partition - function that implement the quick sort algorithm
