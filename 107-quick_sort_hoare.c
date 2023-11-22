@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * partition - function that implement the quick sort algorithm
@@ -10,12 +11,18 @@
  */
 int partition(int *array, int low, int high, int len)
 {
-	int pivot_value = array[high];
-	int i = low, j, temp;
+	int pivot = array[high], i = low - 1, j = high, temp;
 
-	for (j = low; j < high; j++)
+	while (i < j)
 	{
-		if (array[j] <= pivot_value)
+		do {
+			j--;
+		} while (array[j] > pivot && j >= 0);
+		do {
+			i++;
+		} while (array[i] <= pivot && i < high);
+
+		if (i < j)
 		{
 			if (i != j)
 			{
@@ -24,13 +31,15 @@ int partition(int *array, int low, int high, int len)
 				array[j] = temp;
 				print_array(array, len);
 			}
-			i++;
 		}
 	}
-	temp = array[high];
-	array[high] = array[i];
-	array[i] = temp;
-
+	if (i != high)
+	{
+		temp = array[high];
+		array[high] = array[i];
+		array[i] = temp;
+		print_array(array, len);
+	}
 	return (i);
 }
 
@@ -49,7 +58,6 @@ void quick_sort_recursion(int *array, int low, int high, int len)
 	if (low < high)
 	{
 		pivot_pos = partition(array, low, high, len);
-		print_array(array, len);
 		quick_sort_recursion(array, low, pivot_pos - 1, len);
 		quick_sort_recursion(array, pivot_pos + 1, high, len);
 	}
