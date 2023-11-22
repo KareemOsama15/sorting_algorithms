@@ -60,6 +60,7 @@ void quickSort_recursion(int *array, int low, int high, int len)
 
 /**
  * quick_sort - function that implement the quick sort algorithm
+ * and implementing Lomuto partition algorithm
  * @array: the array that contain numbers
  * @size: size of array
  * Return: no return

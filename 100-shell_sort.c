@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * shellSort_implementation - function that implement the quick sort algorithm
+ * shellSort_implementation - function that implement the shell sort algorithm
  * @array: the array that contain numbers
  * @size: size of array
  * @n: the gap between array indexes
@@ -27,7 +27,7 @@ void shellSort_implementation(int *array, size_t size, int n)
 }
 
 /**
- * shell_sort - function that implement the quick sort algorithm
+ * shell_sort - function that implement the shell sort algorithm
  * @array: the array that contain numbers
  * @size: size of array
  * Return: no return
