@@ -49,13 +49,6 @@ void print_array(const int *array, size_t size)
  */
 int main(void)
 {
-	int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-	size_t n = sizeof(array) / sizeof(array[0]);
-
-	print_array(array, n);
-	printf("\n");
-	counting_sort(NULL, 0);
-	printf("\n");
-	print_array(array, n);
+	insertion_sort_list(NULL);
 	return (0);
 }
